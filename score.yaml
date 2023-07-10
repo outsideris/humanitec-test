@@ -3,8 +3,15 @@ apiVersion: score.dev/v1b1
 metadata:
   name: hello-world
 
+service:
+  ports:
+    www:
+      port: 80
+
 containers:
   hello:
-    image: busybox
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do echo Hello World!; sleep 5; done"]
+    image: nginx
+
+resources:
+  dns:
+    type: dns
